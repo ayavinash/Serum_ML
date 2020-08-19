@@ -672,28 +672,33 @@ def get_arguments():
 def set_arguments():
     parser = ArgumentParser()
     args = parser.parse_args()
-    args.protein_groups = "C:/projects/serum/new_analysis/final_IEO/ML/all_samples/results/LFQ_intensity.txt"
-    args.expdesign = "C:/projects/serum/new_analysis/final_IEO/ML/all_samples/93_samples.txt"
-    args.out = "C:/projects/serum/new_analysis/final_IEO/ML/all_samples/results/ML/testsize_0.1/features_20"
+#    args.protein_groups = "C:/projects/serum/new_analysis/final_IEO/ML/all_samples/results/LFQ_intensity.txt"
+#    args.expdesign = "C:/projects/serum/new_analysis/final_IEO/ML/all_samples/93_samples.txt"
+#    args.out = "C:/projects/serum/new_analysis/final_IEO/ML/all_samples/results/ML/testsize_0.1/features_20"
 
 
 # =============================================================================
-#     args.protein_groups = "C:/projects/serum/new_analysis/final_IEO/ML/LFQ_intensity.txt"
-#     args.expdesign = "C:/projects/serum/new_analysis/final_IEO/ML/expdesign_for_IEO_RT_5_samples_removed_H192.txt"
-#     args.out = "C:/projects/serum/new_analysis/final_IEO/ML/grant_0410/final/test_size_33/subgroup_33/random_state_1234/"
+#    args.protein_groups = "C:/projects/serum/new_analysis/final_IEO/ML/LFQ_intensity.txt"
+#    args.expdesign = "C:/projects/serum/new_analysis/final_IEO/ML/expdesign_for_IEO_RT_5_samples_removed_H192.txt"
+#    args.out = "C:/projects/serum/new_analysis/final_IEO/ML/grant_0410/final/test_size_33/subgroup_33/random_state_1234/"
 # 
 # =============================================================================
-
-    args.stratify=1
+    print(os.getcwd())
+    args.protein_groups = os.path.join(os.getcwd(),"data","LFQ_intensity.txt")
+    args.expdesign = os.path.join(os.getcwd(),"data","expdesign_for_IEO_RT_5_samples_removed_H192.txt")
+    args.out = os.path.join(os.getcwd(),"output")
+    
+    #sys.exit()
+    args.stratify=None
     args.random=1234
-    args.testsize=0.1 ### change testsize along with the function
+    args.testsize=33 ### change testsize along with the function
     args.annova_percentile=None
     args.counts=None
-    args.subgroup=None
+    args.subgroup=1
     args.diff_data=None
     #args.scaler=MaxAbsScaler()
     args.scaler=StandardScaler()
-    args.n_features=20
+    args.n_features=None
     args.threshold=None
     args.display_labels=["Healthy","Tumor"]
     
