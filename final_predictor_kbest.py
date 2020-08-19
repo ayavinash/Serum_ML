@@ -684,9 +684,12 @@ def set_arguments():
 # 
 # =============================================================================
     print(os.getcwd())
-    args.protein_groups = os.path.join(os.getcwd(),"data","LFQ_intensity.txt")
-    args.expdesign = os.path.join(os.getcwd(),"data","expdesign_for_IEO_RT_5_samples_removed_H192.txt")
-    args.out = os.path.join(os.getcwd(),"output")
+    script_dir = os.path.dirname(os.path.realpath(sys.argv[0]))
+    print(script_dir)
+    
+    args.protein_groups = os.path.join(script_dir,"data","LFQ_intensity.txt")
+    args.expdesign = os.path.join(script_dir,"data","expdesign_for_IEO_RT_5_samples_removed_H192.txt")
+    args.out = os.path.join(script_dir,"output")
     
     #sys.exit()
     args.stratify=None
