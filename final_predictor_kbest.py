@@ -670,6 +670,7 @@ def get_arguments():
 
 
 def set_arguments():
+
     parser = ArgumentParser()
     args = parser.parse_args()
 #    args.protein_groups = "C:/projects/serum/new_analysis/final_IEO/ML/all_samples/results/LFQ_intensity.txt"
@@ -688,7 +689,7 @@ def set_arguments():
     print(script_dir)
     
     args.protein_groups = os.path.join(script_dir,"data","LFQ_intensity.txt")
-    args.expdesign = os.path.join(script_dir,"data","expdesign_for_IEO_RT_5_samples_removed_H192.txt")
+    args.expdesign = os.path.join(script_dir,"data","expdesign.txt")
     args.out = os.path.join(script_dir,"output")
     
     #sys.exit()
