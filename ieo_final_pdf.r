@@ -12,9 +12,9 @@ library("ggplot2")
 
 ## Taking all 93 samples
 
-setwd("C:/projects/serum/new_analysis/final_IEO/ML/all_samples/results/")
-data <- read.csv("C:/projects/serum/new_analysis/final_IEO/ML/all_samples/proteinGroups_filtered/proteinGroups_93_samples_0.7.txt", header = TRUE,stringsAsFactors = FALSE, sep = "\t")
-expdesign <- read.csv("C:/projects/serum/new_analysis/final_IEO/ML/all_samples/93_samples.txt",header = TRUE,stringsAsFactors = FALSE, sep = "\t")
+#setwd("C:/projects/serum/new_analysis/final_IEO/ML/all_samples/results/")
+#data <- read.csv("C:/projects/serum/new_analysis/final_IEO/ML/all_samples/proteinGroups_filtered/proteinGroups_93_samples_0.7.txt", header = TRUE,stringsAsFactors = FALSE, sep = "\t")
+#expdesign <- read.csv("C:/projects/serum/new_analysis/final_IEO/ML/all_samples/93_samples.txt",header = TRUE,stringsAsFactors = FALSE, sep = "\t")
 
 
 

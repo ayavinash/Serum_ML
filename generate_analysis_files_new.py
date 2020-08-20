@@ -1,3 +1,9 @@
+### This script filters the maxquant proteingroups file to discard genes
+### which are not quantified in specified proportion of replicates 
+### in each condition
+
+
+
 import pandas as pd
 import numpy as np
 from argparse import ArgumentParser
