@@ -1,0 +1,57 @@
+####################classifier output###########
+current output dir: c:\projects\repos\Serum_ML\output
+ argument_dest: protein_groups	argument_value: c:\projects\repos\Serum_ML\data\LFQ_intensity.txt
+ argument_dest: expdesign	argument_value: c:\projects\repos\Serum_ML\data\expdesign.txt
+ argument_dest: out	argument_value: c:\projects\repos\Serum_ML\output
+ argument_dest: stratify	argument_value: None
+ argument_dest: random	argument_value: 1234
+ argument_dest: testsize	argument_value: 33
+ argument_dest: annova_percentile	argument_value: None
+ argument_dest: counts	argument_value: None
+ argument_dest: subgroup	argument_value: 1
+ argument_dest: diff_data	argument_value: None
+ argument_dest: scaler	argument_value: StandardScaler(copy=True, with_mean=True, with_std=True)
+ argument_dest: n_features	argument_value: None
+ argument_dest: threshold	argument_value: None
+ argument_dest: recdir	argument_value: 0
+ argument_dest: display_labels	argument_value: ['Healthy', 'Tumor']
+-------------------
+training shape :(54, 938)
+test shape :(33, 938)
+Best parameter (CV score=0.960):
+Best parameters	{'svc__C': 0.01, 'svc__kernel': 'linear'}
+Final Best Model (CV score=0.940 after 500 Cycles):
+Random Salzberg (CV score=0.470 after 500 Cycles):
+-----------------------------------------------------
+-----------------------------------------------------
+Mean score (iter-wise)=0.94
+Mean STDV (iter-wise)=0.03
+-----------------------------------------------------
+Mean score (overall)=0.9404071040071039
+Mean STDV (overall)=0.07116685561628187
+Average precision-recall score: 1.00
+-----------------------------------------------------
+Prediction Result...
+-----------------------------------------------------
+Test Results.......
+Log_Thres	Log_TPR	Log_FPR	Log_TPR-Log_FPR
+1.99678	0.00000	0.00000	0.00000
+0.99678	0.05263	0.00000	0.05263
+0.55831	1.00000	0.00000	1.00000
+0.01392	1.00000	1.00000	0.00000
+---------Confusion_matrix-------
+tn	fp	fn	tp
+14	0	0	19
+----------------
+----Precision Recall F1-score Support------
+              precision    recall  f1-score   support
+
+     Healthy       1.00      1.00      1.00        14
+       Tumor       1.00      1.00      1.00        19
+
+    accuracy                           1.00        33
+   macro avg       1.00      1.00      1.00        33
+weighted avg       1.00      1.00      1.00        33
+
+----------------
+-------------DONE-------------

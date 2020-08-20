@@ -469,6 +469,17 @@ def create_new_file(outdir,testsize,counts,subgroup,random_state):
     file_h = open(filepath,"w")
     return (file_h,curdir)
 
+def create_new_file_fixed(outdir,testsize,counts,subgroup,random_state):
+    if not os.path.exists(outdir):
+        os.makedirs(outdir)
+    curdir = outdir    
+    #os.makedirs(curdir)
+    print("Output directory is:",curdir)
+    filepath = os.path.join(curdir,"ML_results.txt")
+    file_h = open(filepath,"w")
+    return (file_h,curdir)
+
+
 def write_line(file_h,line):
     file_h.write(line+"\n")
     return file_h
@@ -648,6 +659,10 @@ def get_arguments():
     parser.add_argument("-s",dest="subgroup",
             help="Take samples from sub-group for train test ...",default=False,type=bool)
 
+    parser.add_argument("-rec",dest="recdir",
+            help="Create recursive dirs ...",default=False,type=bool)
+
+
     parser.add_argument("-r",dest="random",
             help="Random seed integer ...",default=42,type=int)
 
@@ -655,7 +670,7 @@ def get_arguments():
             help ="full path to output file from DEP analyis with list of significant genes...",type=str,
             default=None)
 
-    parser.add_argument("-annovaP",dest="annova_percentile",
+    parser.add_argument("-annovaP",dest="annova_percentile",    
             help ="Annova percentile cutoff for number of genes to...",type=float,
             default=None)
 
@@ -704,6 +719,8 @@ def set_arguments():
     args.scaler=StandardScaler()
     args.n_features=None
     args.threshold=None
+    args.recdir = 0
+
     args.display_labels=["Healthy","Tumor"]
     
     
@@ -715,7 +732,10 @@ def set_arguments():
 def main():
     args = set_arguments()
     #print(args)
-    file_h,curdir = create_new_file(args.out,args.testsize,args.counts,args.subgroup,args.random)
+    if args.recdir:
+        file_h,curdir = create_new_file(args.out,args.testsize,args.counts,args.subgroup,args.random)
+    else:
+        file_h,curdir = create_new_file_fixed(args.out,args.testsize,args.counts,args.subgroup,args.random)
     file_h = write_line(file_h,"####################classifier output###########")
     file_h = write_line(file_h,"current output dir: %s"% curdir)
     for arg in args.__dict__:
